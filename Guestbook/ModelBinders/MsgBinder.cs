@@ -34,7 +34,7 @@ namespace Guestbook.ModelBinders
             var recaptchaResponse = captchaValidtor.Validate();
             if (!recaptchaResponse.IsValid)
             {
-                actionContext.ModelState.AddModelError("recaptcha_response_field", "Символы не соответствуют изображению.");
+                actionContext.ModelState.AddModelError("recaptcha_response_field", "Символы не соответствуют картинке.");
             }
             return true;
         }

@@ -114,7 +114,7 @@ $(function () {
             field: "Date",
             title: "Дата",
             format: "{0:dd.MM.yyyy HH:mm}",
-            width: 120
+            width: 130
         },
         {
             field: "Text",
