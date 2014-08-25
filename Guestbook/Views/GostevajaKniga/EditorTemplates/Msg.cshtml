@@ -1,0 +1,61 @@
+﻿@model Guestbook.Models.Msg
+
+@using (Html.BeginForm("", "", FormMethod.Post, new Dictionary<string, object> { { "class", "form-horizontal" }, { "style", "width:450px; padding: 0 15px;" } }))
+{
+    <div class="form-group">
+        @Html.LabelFor(model => model.UserName, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Email, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.HomePage, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.HomePage, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.HomePage, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Text, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Text, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div id="recaptcha"></div>
+
+    <div id="recaptcha_widget" class="form-group">
+        @Html.Label("recaptcha_response_field", "CAPTHCA", new { @class = "control-label col-md-2" })
+
+        <div class="col-md-10">
+            <div id="recaptcha_area" class="recaptchaArea">
+                <div id="recaptcha_table" class="recaptchatable recaptcha_theme_red">
+                    <div id="recaptcha_image"></div>
+                    <div>
+                        <div style="float: left; width: 270px; margin-right: 5px;">
+                            @Html.Editor("recaptcha_response_field", new { htmlAttributes = new { @class = "form-control", style = "margin-top: 5px", placeholder = "Введите текст с картинки", data_val_required = "Введите текст с картинки", data_val = "true" } })
+                            @Html.ValidationMessage("recaptcha_response_field", "", new { style = "color:red;" })
+                        </div>
+                        <div style="float: left; width:25px;margin-top:5px;">
+                            <a id="recaptcha_reload_btn" href="javascript:Recaptcha.reload()" title="Обновить"><img width="25" height="17" id="recaptcha_reload" src="http://www.google.com/recaptcha/api/img/red/refresh.gif" alt="Обновить"></a>
+                            <a id="recaptcha_whatsthis_btn" href="javascript:Recaptcha.showhelp()" title="Справка"><img width="25" height="16" id="recaptcha_whatsthis" src="http://www.google.com/recaptcha/api/img/red/help.gif" alt="Справка"></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+}
